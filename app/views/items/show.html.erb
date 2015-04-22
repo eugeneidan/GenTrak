@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @item.name %>
+</p>
+
+<p>
+  <strong>Desc:</strong>
+  <%= @item.desc %>
+</p>
+
+<p>
+  <strong>Unit px:</strong>
+  <%= @item.unit_px %>
+</p>
+
+<p>
+  <strong>Total qty:</strong>
+  <% unless @item.total_qty.nil? %>
+    <%= @item.total_qty  %>
+  <% else %>
+    1
+  <% end %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @item.code %>
+</p>
+
+<p>
+  <strong>Item type:</strong>
+  <%= @item.item_type %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

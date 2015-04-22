@@ -1,0 +1,35 @@
+<%= form_for(@item, remote: true) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <!-- <input type="hidden" name="authenticity_token" value="" /> -->
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :desc %><br>
+    <%= f.text_field :desc %>
+  </div>
+  <div class="field">
+    <%= f.label :unit_px %><br>
+    <%= f.number_field :unit_px %>
+  </div>
+  <div class="field">
+    <%= f.label :item_type %><br>
+    <%= f.select :item_type , [['spares','spares'],['hardware','hardware'],['consumable','consumable']] %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
