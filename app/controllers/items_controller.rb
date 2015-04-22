@@ -31,18 +31,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
 
-    # unless Item.exists?(Item.first)
-    #   puts "there is no item"
-    #   get_last_code(@item)
-    # else
-    #   puts "there is an item"
-    #
-    # end
-
     respond_to do |format|
       if @item.save
-        # Get the last code
-        get_last_code(@item)
+        # Set the code and the default total quantity
+        set_code_and_totalQty(@item)
 
         format.html { redirect_to items_url, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
@@ -88,12 +80,13 @@ class ItemsController < ApplicationController
       params.require(:item).permit(:name, :desc, :unit_px, :total_qty, :code, :item_type)
     end
 
-    # This retrieves the last code of the item stored
-    def get_last_code(item)
-        puts "creating the code"
+    # This sets the code and the total qty of the item stored
+    def set_code_and_totalQty(item)
+        # puts "creating the code"
         code = "IN00#{item.id}"
-        item.update_attributes(code: code)
-        puts code
-        return code
+        item.total_qty = 0
+        item.update_attributes(code: code, total_qty: 0)
+        # puts code
+        # return code
     end
 end
