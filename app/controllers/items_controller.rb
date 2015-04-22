@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    
+
   end
 
   # GET /items/new
@@ -31,12 +31,20 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
 
+    # unless Item.exists?(Item.first)
+    #   puts "there is no item"
+    #   get_last_code(@item)
+    # else
+    #   puts "there is an item"
+    #
+    # end
+
     respond_to do |format|
       if @item.save
         # Get the last code
-        get_last_code
-        @item.code = "IN00"
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        get_last_code(@item)
+
+        format.html { redirect_to items_url, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
@@ -81,8 +89,11 @@ class ItemsController < ApplicationController
     end
 
     # This retrieves the last code of the item stored
-    def get_last_code
-      code = Item.last.code
-      puts code
+    def get_last_code(item)
+        puts "creating the code"
+        code = "IN00#{item.id}"
+        item.update_attributes(code: code)
+        puts code
+        return code
     end
 end

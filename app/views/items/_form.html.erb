@@ -1,4 +1,4 @@
-<%= form_for(@item, remote: true) do |f| %>
+<%= form_for(@item) do |f| %>
   <% if @item.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
@@ -10,8 +10,6 @@
       </ul>
     </div>
   <% end %>
-
-  <!-- <input type="hidden" name="authenticity_token" value="" /> -->
 
   <div class="field">
     <%= f.label :name %><br>
