@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dateIn: 2015-04-22 18:19:13
+  item_id: 
+  source: MyString
+  purpose: MyString
+  serialNo: MyString
+  waybillNo: MyString
+  receivedBy: MyString
+  sentBy: MyString
+
+two:
+  dateIn: 2015-04-22 18:19:13
+  item_id: 
+  source: MyString
+  purpose: MyString
+  serialNo: MyString
+  waybillNo: MyString
+  receivedBy: MyString
+  sentBy: MyString

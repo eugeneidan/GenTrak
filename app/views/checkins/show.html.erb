@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @checkin.dateIn.strftime('%d-%m-%y') %>
+</p>
+
+<p>
+  <strong>Item:</strong>
+  <%= @checkin.item.name.capitalize %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @checkin.source %>
+</p>
+
+<p>
+  <strong>Purpose:</strong>
+  <%= @checkin.purpose %>
+</p>
+
+<p>
+  <strong>Serial No:</strong>
+  <%= @checkin.serialNo %>
+</p>
+
+<p>
+  <strong>Waybill No:</strong>
+  <%= @checkin.waybillNo %>
+</p>
+
+<p>
+  <strong>Received By:</strong>
+  <%= @checkin.receivedBy %>
+</p>
+
+<p>
+  <strong>Sent By:</strong>
+  <%= @checkin.sentBy %>
+</p>
+
+<%= link_to 'Edit', edit_checkin_path(@checkin) %> |
+<%= link_to 'Back', checkins_path %>

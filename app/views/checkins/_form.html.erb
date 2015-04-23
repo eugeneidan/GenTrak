@@ -1,0 +1,49 @@
+<%= form_for(@checkin) do |f| %>
+  <% if @checkin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@checkin.errors.count, "error") %> prohibited this checkin from being saved:</h2>
+
+      <ul>
+      <% @checkin.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :dateIn, "Date" %><br>
+    <%= f.date_select :dateIn %>
+  </div>
+  <div class="field">
+    <%= f.label :item_id %><br>
+    <%= f.collection_select(:item_id, Item.all, :id, :name_with_id, prompt: true)%>
+  </div>
+  <div class="field">
+    <%= f.label :source %><br>
+    <%= f.select :source, [['STL','STL'],['HSB','HSB'],['3rd Party','3rd Party']] %>
+  </div>
+  <div class="field">
+    <%= f.label :purpose %><br>
+    <%= f.select :purpose, [['Stocking','Stocking'],['Repairs','Repairs'],['Consumable','Consumable']] %>
+  </div>
+  <div class="field">
+    <%= f.label :serialNo, "Serial No:"%><br>
+    <%= f.text_field :serialNo %>
+  </div>
+  <div class="field">
+    <%= f.label :waybillNo, "WayBill No:" %><br>
+    <%= f.text_field :waybillNo %>
+  </div>
+  <div class="field">
+    <%= f.label :receivedBy, "Received By:" %><br>
+    <%= f.select :receivedBy, [['Eugene','Eugene'],['Emmanuel','Emmanuel'],['Percy','Percy'], ['Kofi Boateng','Kofi Boateng']] %>
+  </div>
+  <div class="field">
+    <%= f.label :sentBy, "Sent By:" %><br>
+    <%= f.text_field :sentBy %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Check In"%>
+  </div>
+<% end %>
