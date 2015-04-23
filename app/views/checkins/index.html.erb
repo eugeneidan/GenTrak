@@ -8,6 +8,7 @@
       <th>Date</th>
       <th>Item</th>
       <th>Source</th>
+      <th>State</th>
       <th>Purpose</th>
       <th>Serial No</th>
       <th>Waybill No</th>
@@ -23,6 +24,7 @@
         <td><%= checkin.dateIn.strftime('%d-%m-%y') %></td>
         <td><%= checkin.item.name %></td>
         <td><%= checkin.source %></td>
+        <td><%= checkin.state %></td>
         <td><%= checkin.purpose %></td>
         <td><%= checkin.serialNo %></td>
         <td><%= checkin.waybillNo %></td>
@@ -38,4 +40,4 @@
 
 <br>
 
-<%= link_to 'New Checkin', new_checkin_path %>
+<%= link_to 'Check In', new_checkin_path %>

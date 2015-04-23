@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<div class="container">
+  <div class="navbar">
+    <ul>
+      <li>
+         <%= link_to "Check In", checkins_url %> 
+      </li>
+      <li>
+         <%= link_to "Store", items_url %> 
+      </li>
+      <li>
+         <%= link_to "Check Out", checkins_url %> 
+      </li>
+    </ul>
+  </div>
+  <%= yield %>
+</div>
 </body>
 </html>

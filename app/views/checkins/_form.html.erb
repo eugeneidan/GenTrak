@@ -24,6 +24,10 @@
     <%= f.select :source, [['STL','STL'],['HSB','HSB'],['3rd Party','3rd Party']] %>
   </div>
   <div class="field">
+    <%= f.label :state %><br>
+    <%= f.select :state, [['Faulty','Faulty'],['New','New'],['Fixed','Fixed']] %>
+  </div>
+  <div class="field">
     <%= f.label :purpose %><br>
     <%= f.select :purpose, [['Stocking','Stocking'],['Repairs','Repairs'],['Consumable','Consumable']] %>
   </div>
@@ -44,6 +48,6 @@
     <%= f.text_field :sentBy %>
   </div>
   <div class="actions">
-    <%= f.submit "Check In"%>
+    <%= f.submit %>
   </div>
 <% end %>
