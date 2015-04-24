@@ -1,0 +1,57 @@
+<%= form_for(@checkout) do |f| %>
+  <% if @checkout.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@checkout.errors.count, "error") %> prohibited this checkout from being saved:</h2>
+
+      <ul>
+      <% @checkout.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :dateOut %><br>
+    <%= f.date_select :dateOut %>
+  </div>
+  <div class="field">
+    <%= f.label :serial_no %><br>
+    <%= f.text_field :serial_no %>
+  </div>
+  <div class="field">
+    <label>Name</label><br/>
+    <%= select_tag("Item Name", options_from_collection_for_select(Item.all, :code, :name)) %>
+  </div>
+  <div class="hidden">
+    <%= f.label :checkin_id %><br>
+    <%= f.text_field :checkin_id %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :destination %><br>
+    <%= f.text_field :destination %>
+  </div>
+  <div class="field">
+    <%= f.label :purpose %><br>
+    <%= f.text_field :purpose %>
+  </div>  
+  <div class="field">
+    <%= f.label :dispatchedBy, "Dispatched By" %><br>
+    <%= f.text_field :dispatchedBy %>
+  </div>
+  <div class="field">
+    <%= f.label :receivedBy, "Received By" %><br>
+    <%= f.text_field :receivedBy %>
+  </div>
+  <div class="field">
+    <%= f.label :waybillNo, "Waybill No" %><br>
+    <%= f.text_field :waybillNo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

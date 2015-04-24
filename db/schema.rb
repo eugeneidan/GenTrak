@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423151751) do
+ActiveRecord::Schema.define(version: 20150423163434) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,22 @@ ActiveRecord::Schema.define(version: 20150423151751) do
 
   add_index "checkins", ["item_id"], name: "index_checkins_on_item_id", using: :btree
 
+  create_table "checkouts", force: :cascade do |t|
+    t.date     "dateOut"
+    t.integer  "checkin_id"
+    t.string   "state"
+    t.string   "destination"
+    t.string   "purpose"
+    t.string   "serial_no"
+    t.string   "dispatchedBy"
+    t.string   "receivedBy"
+    t.string   "waybillNo"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "checkouts", ["checkin_id"], name: "index_checkouts_on_checkin_id", using: :btree
+
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.string   "desc"
@@ -44,4 +60,5 @@ ActiveRecord::Schema.define(version: 20150423151751) do
   end
 
   add_foreign_key "checkins", "items"
+  add_foreign_key "checkouts", "checkins"
 end

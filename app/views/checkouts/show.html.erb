@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Dateout:</strong>
+  <%= @checkout.dateOut %>
+</p>
+
+<p>
+  <strong>Checkin:</strong>
+  <%= @checkout.checkin %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @checkout.state %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @checkout.destination %>
+</p>
+
+<p>
+  <strong>Purpose:</strong>
+  <%= @checkout.purpose %>
+</p>
+
+<p>
+  <strong>Serial No:</strong>
+  <%= @checkout.serial_no %>
+</p>
+
+<p>
+  <strong>Dispatched By:</strong>
+  <%= @checkout.dispatchedBy %>
+</p>
+
+<p>
+  <strong>Received By:</strong>
+  <%= @checkout.receivedBy %>
+</p>
+
+<p>
+  <strong>Waybill No:</strong>
+  <%= @checkout.waybillNo %>
+</p>
+
+<%= link_to 'Edit', edit_checkout_path(@checkout) %> |
+<%= link_to 'Back', checkouts_path %>

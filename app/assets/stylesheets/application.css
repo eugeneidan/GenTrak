@@ -99,3 +99,7 @@ ul {
    display: inline;
    list-style: none;
 }
+
+.hidden {
+    display: none;
+}

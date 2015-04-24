@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dateOut: 2015-04-23
+  checkin_id: 
+  state: MyString
+  destination: MyString
+  purpose: MyString
+  serial_no: MyString
+  dispatchedBy: MyString
+  receivedBy: MyString
+  waybillNo: MyString
+
+two:
+  dateOut: 2015-04-23
+  checkin_id: 
+  state: MyString
+  destination: MyString
+  purpose: MyString
+  serial_no: MyString
+  dispatchedBy: MyString
+  receivedBy: MyString
+  waybillNo: MyString
