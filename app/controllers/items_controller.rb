@@ -1,6 +1,8 @@
 class ItemsController < ApplicationController
 
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  
+  before_action :get_total_qty, only: [:show, :index]
 
   skip_before_action :verify_authenticity_token
 
@@ -88,5 +90,16 @@ class ItemsController < ApplicationController
         item.update_attributes(code: code, total_qty: 0)
         # puts code
         # return code
+    end
+    
+    def get_total_qty
+        # Get all the items
+        items = Item.all
+        for i in items
+            # set the total quantity for each item
+            total = i.check_total
+            i.update_attributes(total_qty: total)
+        end
+        
     end
 end
