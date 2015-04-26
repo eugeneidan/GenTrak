@@ -1,6 +1,5 @@
 class Checkin < ActiveRecord::Base
   
-<<<<<<< HEAD
   # Associations
   # You can only check in an item stored
   belongs_to :item
@@ -8,11 +7,6 @@ class Checkin < ActiveRecord::Base
   # You can only check out a checked in item ONCE
   has_one :checkout
    
-end
-=======
-  #Associations
-  belongs_to :item
-
   #Validations
   validates :waybillNo, length: { in: 6..8}, if: :is_applicable?
   validates :serialNo, format: { with: /^[zZ][3][jJ][1][0-9]{8}/, multiline: true }, if: :is_item_printer?
@@ -35,4 +29,4 @@ end
   end
   
 end
->>>>>>> checkinFeature
+
