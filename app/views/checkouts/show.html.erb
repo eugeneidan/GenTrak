@@ -1,28 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Dateout:</strong>
-  <%= @checkout.dateOut %>
-</p>
-
-<p>
-  <strong>Checkin:</strong>
-  <%= @checkout.checkin %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @checkout.state %>
-</p>
-
-<p>
-  <strong>Destination:</strong>
-  <%= @checkout.destination %>
-</p>
-
-<p>
-  <strong>Purpose:</strong>
-  <%= @checkout.purpose %>
+  <strong> Name:</strong>
+  <%= @checkin.item.name.upcase %>
 </p>
 
 <p>
@@ -31,13 +11,38 @@
 </p>
 
 <p>
+  <strong>Date In:</strong>
+  <%= @checkin.dateIn.strftime("%d-%m-%y") %>
+</p>
+
+<p>
+  <strong>Date Out:</strong>
+  <%= @checkout.dateOut.strftime("%d-%m-%y") %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @checkout.state.capitalize %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @checkout.destination.upcase %>
+</p>
+
+<p>
+  <strong>Purpose:</strong>
+  <%= @checkout.purpose.capitalize %>
+</p>
+
+<p>
   <strong>Dispatched By:</strong>
-  <%= @checkout.dispatchedBy %>
+  <%= @checkout.dispatchedBy.capitalize %>
 </p>
 
 <p>
   <strong>Received By:</strong>
-  <%= @checkout.receivedBy %>
+  <%= @checkout.receivedBy.capitalize %>
 </p>
 
 <p>

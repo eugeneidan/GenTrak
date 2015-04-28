@@ -1,15 +1,24 @@
 class CheckoutsController < ApplicationController
   before_action :set_checkout, only: [:show, :edit, :update, :destroy]
+  #before_action :find_checkin, only: [:create]
 
   # GET /checkouts
   # GET /checkouts.json
   def index
     @checkouts = Checkout.all
+    #@checkins = Array.new
+    #for checkout in @checkouts
+    #    #code
+    #    @checkins << find_checkin(checkout.serial_no)
+    #end
+    
   end
 
   # GET /checkouts/1
   # GET /checkouts/1.json
   def show
+   @checkout = Checkout.find(params[:id])
+   @checkin = find_checkin(@checkout.serial_no)
   end
 
   # GET /checkouts/new
@@ -25,7 +34,8 @@ class CheckoutsController < ApplicationController
   # POST /checkouts.json
   def create
     @checkout = Checkout.new(checkout_params)
-
+    @checkout.checkin = find_checkin(checkout_params[:serial_no])
+    
     respond_to do |format|
       if @checkout.save
         format.html { redirect_to @checkout, notice: 'Checkout was successfully created.' }
@@ -69,6 +79,16 @@ class CheckoutsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def checkout_params
-      params.require(:checkout).permit(:dateOut, :checkin_id, :state, :destination, :purpose, :serial_no, :dispatchedBy, :receivedBy, :waybillNo)
+      params.require(:checkout).permit(:dateOut, :state, :destination, :purpose, :serial_no, :dispatchedBy, :receivedBy, :waybillNo)
+    end
+    
+    def find_checkin(*serial_no)
+      # Get the related check in based on the serial no
+      #if checkout_params[:serial_no]
+      #  #code
+      #  serial_no = params[:serial_no]
+      #end      
+        checkin = Checkin.find_by_serialNo(serial_no)
+        return checkin      
     end
 end
