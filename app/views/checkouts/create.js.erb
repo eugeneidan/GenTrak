@@ -1,0 +1,3 @@
+$('#checkouts tr:last').after("<%= j (render partial: @checkout) %>");
+$('#new-checkout').slideUp(350);
+$('#notice').html('Check out successful!');

@@ -2,7 +2,14 @@
 
 <h1>Outgoing</h1>
 
-<table>
+
+
+<%= link_to 'New Checkout', new_checkout_path, remote: true %>
+
+<div id="new-checkout" style="display:none;"></div>
+
+<div class="row">
+  <table id="checkouts">
   <thead>
     <tr>
       <th>Date Sent</th>
@@ -19,29 +26,11 @@
   </thead>
 
   <tbody>
-    <% @checkouts.each do |checkout| %>
-      <tr>
-        <td><%= checkout.dateOut %></td>
-        <% if !checkout.checkin.nil? %>
-          <td><%= checkout.checkin.item.name.capitalize %></td>
-        <% else %>
-          <td><%= "No Name" %></td>
-        <% end %>
-        <td><%= checkout.state %></td>
-        <td><%= checkout.destination %></td>
-        <td><%= checkout.purpose %></td>
-        <td><%= checkout.serial_no %></td>
-        <td><%= checkout.dispatchedBy %></td>
-        <td><%= checkout.receivedBy %></td>
-        <td><%= checkout.waybillNo %></td>
-        <td><%= link_to 'Show ', checkout %></td>
-        <td><%= link_to ' Edit', edit_checkout_path(checkout) %></td>
-        <td><%= link_to ' Destroy', checkout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <div id="render_page">
+      <%= render partial: @checkouts %>
+    </div>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Checkout', new_checkout_path %>
+</div>

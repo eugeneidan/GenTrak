@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150423163434) do
+ActiveRecord::Schema.define(version: 20150429174600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,10 @@ ActiveRecord::Schema.define(version: 20150423163434) do
     t.string   "waybillNo"
     t.string   "receivedBy"
     t.string   "sentBy"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.string   "state"
+    t.boolean  "checked_out"
   end
 
   add_index "checkins", ["item_id"], name: "index_checkins_on_item_id", using: :btree

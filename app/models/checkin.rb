@@ -21,6 +21,7 @@ class Checkin < ActiveRecord::Base
     end    
   end
   
+  # Make sure the waybill field is not empty unless the item came from "HSB"
   def is_applicable?
     if self.source.nil?
         # check the source of the item
